@@ -11,31 +11,34 @@
           <th scope="col" class="px-6 py-3">{{ title.val6 }}</th>
           <th scope="col" class="px-6 py-3">{{ title.val7 }}</th>
           <th scope="col" class="px-6 py-3">{{ title.val8 }}</th>
-          <th scope="col" class="px-6 py-3">{{ title.val9 }}</th>
         </tr>
       </thead>
       <tbody>
         <tr
-          v-for="(order, index) in orders"
+          v-for="(chef, index) in chefs"
           :key="index"
           class="border-b border-gray-300 hover:bg-gray-50"
         >
-          <td class="px-6 py-4 whitespace-nowrap">{{ order.customerName }}</td>
-          <td class="px-6 py-4 whitespace-nowrap">{{ order.recipeName }}</td>
-          <td class="px-6 py-4 whitespace-nowrap">{{ order.paymentMethod }}</td>
-          <td class="px-6 py-4 whitespace-nowrap">{{ order.total }}</td>
-          <td class="px-6 py-4 whitespace-nowrap">{{ order.address }}</td>
-          <td class="px-6 py-4 whitespace-nowrap">{{ order.phone }}</td>
-          <td class="px-6 py-4 whitespace-nowrap">{{ order.notes }}</td>
-          <td class="px-6 py-4 whitespace-nowrap text-orange-500">
-            {{ order.status }}
-          </td>
-          <td class="px-6 py-4 whitespace-nowrap text-orange-500">
-            <button
-              class="bg-orange-500 text-orange-50 px-4 py-2 rounded-md cursor-pointer"
-            >
-              Mark as Done
-            </button>
+          <td class="px-6 py-4 whitespace-nowrap">{{ chef.ChefName }}</td>
+          <td class="px-6 py-4 whitespace-nowrap">{{ chef.recipeName }}</td>
+          <td class="px-6 py-4 whitespace-nowrap">{{ chef.bio }}</td>
+          <td class="px-6 py-4 whitespace-nowrap">{{ chef.totalR }}</td>
+          <td class="px-6 py-4 whitespace-nowrap">{{ chef.totalO }}</td>
+          <td class="px-6 py-4 whitespace-nowrap">{{ chef.rate }}</td>
+          <td class="px-6 py-4 whitespace-nowrap">{{ chef.image }}</td>
+          <td class="px-6 py-4 whitespace-nowrap">
+            <div class="flex gap-2">
+              <button
+                class="bg-green-500 text-orange-50 px-4 py-2 rounded-md cursor-pointer"
+              >
+                Edit
+              </button>
+              <button
+                class="bg-red-500 text-orange-50 px-4 py-2 rounded-md cursor-pointer"
+              >
+                Delete
+              </button>
+            </div>
           </td>
         </tr>
       </tbody>
@@ -45,7 +48,7 @@
 
 <script setup>
 const props = defineProps({
-  orders: {
+  chefs: {
     type: Array,
     required: true,
     default: () => [],

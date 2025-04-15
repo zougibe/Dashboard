@@ -47,27 +47,27 @@ const role = ref("Admin");
 
 // All possible navigation items
 const allNavItems = [
-  { label: "Home", to: "/admin", icon: Home, roles: ["Admin", "Chef"] },
+  { label: "Home", to: "/admin/", icon: Home, roles: ["Admin", "Chef"] },
   { label: "Chefs", to: "/admin/chefs", icon: User, roles: ["Admin"] },
-  {
-    label: "Recipes",
-    to: "/admin/recipes",
-    icon: Pizza,
-    roles: ["Admin", "Chef"],
-  },
-  {
-    label: "Orders",
-    to: "/admin/orders",
-    icon: ShoppingCart,
-    roles: ["Admin", "Chef"],
-  },
   {
     label: "Categories",
     to: "/admin/categories",
     icon: Utensils,
     roles: ["Admin"],
   },
+  {
+    label: "Recipes",
+    to: "/admin/recipes",
+    icon: Pizza,
+    roles: ["Admin", "Chef"],
+  },
   { label: "Customers", to: "/admin/customers", icon: Users, roles: ["Admin"] },
+  {
+    label: "Orders",
+    to: "/admin/orders",
+    icon: ShoppingCart,
+    roles: ["Admin", "Chef"],
+  },
 ];
 
 // Computed property to filter nav items based on current role
