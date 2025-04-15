@@ -7,10 +7,11 @@
   >
     <div class="max-w-md w-full bg-white p-8 rounded-lg shadow-lg">
       <NuxtLink to="/">
-        <!-- <img src="/images/logo2.svg" alt="Logo" class="w-32 mb-8 mx-auto" /> -->
+        <img src="../assets/images/logo2.svg" alt="Logo" class="w-32 mx-auto" />
       </NuxtLink>
-      <h2 class="text-3xl font-bold mb-8 text-gray-800 text-center">
-        Welcome to Chefs Admin Dashboard
+      <h2 class="text-3xl font-bold mb-4 text-gray-800 text-center">
+        <span class="text-lg font-medium">Welcome to <br /></span>Admin
+        Dashboard
       </h2>
       <form @submit.prevent="handleLogin" class="space-y-6">
         <div class="space-y-2">
@@ -20,7 +21,7 @@
             type="email"
             placeholder="Enter your email..."
             required
-            class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500"
+            class="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500"
           />
         </div>
         <div class="space-y-2 relative">
@@ -31,7 +32,7 @@
               :type="showPassword ? 'text' : 'password'"
               placeholder="Enter your password..."
               required
-              class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 pr-10"
+              class="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 pr-10"
             />
             <button
               type="button"
@@ -80,8 +81,4 @@ const handleLogin = () => {
   console.log("Form data:", form.value);
   // Add your login logic here
 };
-
-definePageMeta({
-  layout: "auth",
-});
 </script>

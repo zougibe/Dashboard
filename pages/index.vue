@@ -1,6 +1,5 @@
 <template>
-  <div class="space-y-8">
-    <Navbar />
+  <div class="space-y-8 p-3">
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
       <DashboardCard title="Orders" value="68" unit="Order(s)" />
       <DashboardCard title="Recipes" value="5" unit="Recipe(s)" />
@@ -18,7 +17,6 @@
 <script setup>
 import DashboardCard from "../../components/DashboardCard.vue";
 import RecentOrdersTable from "../../components/RecentOrdersTable.vue";
-import Navbar from "../../components/Navbar.vue";
 
 const orders = [
   {
