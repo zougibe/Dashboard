@@ -11,6 +11,7 @@
           <th scope="col" class="px-6 py-3">{{ title.val6 }}</th>
           <th scope="col" class="px-6 py-3">{{ title.val7 }}</th>
           <th scope="col" class="px-6 py-3">{{ title.val8 }}</th>
+          <th scope="col" class="px-6 py-3">{{ title.val9 }}</th>
         </tr>
       </thead>
       <tbody>
@@ -22,9 +23,11 @@
           <td class="px-6 py-4">{{ recipe.recipeName }}</td>
           <td class="px-6 py-4">{{ recipe.duration }}</td>
           <td class="px-6 py-4">{{ recipe.ingredient }}</td>
+          <td class="px-6 py-4">{{ recipe.category }}</td>
           <td class="px-6 py-4">{{ recipe.video }}</td>
           <td class="px-6 py-4">{{ recipe.image }}</td>
           <td class="px-6 py-4">{{ recipe.rate }}</td>
+          <td class="px-6 py-4">{{ recipe.description }}</td>
           <td class="px-6 py-4">
             <div class="flex gap-2">
               <button
@@ -58,11 +61,15 @@
       >
         &times;
       </button>
-      <h2 class="text-2xl font-bold mb-6 text-start text-gray-700">Edit Recipe</h2>
+      <h2 class="text-2xl font-bold mb-6 text-start text-gray-700">
+        Edit Recipe
+      </h2>
 
       <div class="space-y-4">
         <div>
-          <label class="block text-sm font-medium text-gray-700">Recipe Name</label>
+          <label class="block text-sm font-medium text-gray-700"
+            >Recipe Name</label
+          >
           <input
             v-model="editedRecipe.recipeName"
             type="text"
@@ -71,7 +78,9 @@
         </div>
 
         <div>
-          <label class="block text-sm font-medium text-gray-700">Duration</label>
+          <label class="block text-sm font-medium text-gray-700"
+            >Duration</label
+          >
           <input
             v-model="editedRecipe.duration"
             type="text"
@@ -80,7 +89,9 @@
         </div>
 
         <div>
-          <label class="block text-sm font-medium text-gray-700">Ingredients</label>
+          <label class="block text-sm font-medium text-gray-700"
+            >Ingredients</label
+          >
           <input
             v-model="editedRecipe.ingredient"
             type="text"
@@ -89,7 +100,20 @@
         </div>
 
         <div>
-          <label class="block text-sm font-medium text-gray-700">Video URL</label>
+          <label class="block text-sm font-medium text-gray-700"
+            >Category</label
+          >
+          <input
+            v-model="editedRecipe.category"
+            type="text"
+            class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 text-gray-600"
+          />
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-gray-700"
+            >Video URL</label
+          >
           <input
             v-model="editedRecipe.video"
             type="text"
@@ -98,7 +122,9 @@
         </div>
 
         <div>
-          <label class="block text-sm font-medium text-gray-700">Image URL</label>
+          <label class="block text-sm font-medium text-gray-700"
+            >Image URL</label
+          >
           <input
             v-model="editedRecipe.image"
             type="text"
@@ -116,7 +142,9 @@
         </div>
 
         <div>
-          <label class="block text-sm font-medium text-gray-700">Description</label>
+          <label class="block text-sm font-medium text-gray-700"
+            >Description</label
+          >
           <textarea
             v-model="editedRecipe.description"
             rows="3"
@@ -138,7 +166,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref } from "vue";
 
 const props = defineProps({
   recipes: {
@@ -151,31 +179,30 @@ const props = defineProps({
     required: true,
     default: () => [],
   },
-})
+});
 
-const emit = defineEmits(['delete-recipe'])
+const emit = defineEmits(["delete-recipe"]);
 
-const isEditModalOpen = ref(false)
-const editedRecipe = ref({})
+const isEditModalOpen = ref(false);
+const editedRecipe = ref({});
 
 const openEditModal = (recipe, index) => {
-  editedRecipe.value = { ...recipe, index }
-  isEditModalOpen.value = true
-}
+  editedRecipe.value = { ...recipe, index };
+  isEditModalOpen.value = true;
+};
 
 const closeEditModal = () => {
-  isEditModalOpen.value = false
-  editedRecipe.value = {}
-}
+  isEditModalOpen.value = false;
+  editedRecipe.value = {};
+};
 
 const saveEditedRecipe = () => {
-  const index = editedRecipe.value.index
-  props.recipes[index] = { ...editedRecipe.value }
-  closeEditModal()
-}
+  const index = editedRecipe.value.index;
+  props.recipes[index] = { ...editedRecipe.value };
+  closeEditModal();
+};
 
 const deleteRecipe = (index) => {
-  // Emit event to delete recipe from parent component
-  emit('delete-recipe', index)
-}
+  emit("delete-recipe", index);
+};
 </script>

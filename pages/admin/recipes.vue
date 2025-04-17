@@ -129,6 +129,17 @@
 
           <div>
             <label class="block text-sm font-medium text-black-700 mb-1"
+              >Category</label
+            >
+            <input
+              v-model="newRecipe.category"
+              type="text"
+              class="w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-orange-400"
+            />
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-black-700 mb-1"
               >Recipe Video Link</label
             >
             <input
@@ -184,10 +195,12 @@ const titles = [
     val1: "Recipe Name",
     val2: "Duration",
     val3: "Ingredients",
-    val4: "Video",
-    val5: "Image",
-    val6: "Rate",
-    val7: "Actions",
+    val4: "Category",
+    val5: "Video",
+    val6: "Image",
+    val7: "Rate",
+    val8: "Description",
+    val9: "Actions",
   },
 ];
 
@@ -197,6 +210,7 @@ const recipes = ref([
     recipeName: "Rice",
     duration: "45min",
     ingredient: "Rice, Water",
+    category: "Healthy",
     video: "link",
     image: "link",
     rate: "5.4",
@@ -205,6 +219,7 @@ const recipes = ref([
     recipeName: "Pasta",
     duration: "30min",
     ingredient: "Pasta, Tomato Sauce, Garlic, Basil",
+    category: "Healthy",
     video: "link",
     image: "link",
     rate: "4.8",
@@ -213,6 +228,7 @@ const recipes = ref([
     recipeName: "Salad",
     duration: "10min",
     ingredient: "Lettuce, Tomatoes, Cucumber, Olive Oil, Salt",
+    category: "Healthy",
     video: "link",
     image: "link",
     rate: "4.5",
@@ -221,6 +237,7 @@ const recipes = ref([
     recipeName: "Pizza",
     duration: "1hr",
     ingredient: "Dough, Tomato Sauce, Cheese, Pepperoni",
+    category: "Healthy",
     video: "link",
     image: "link",
     rate: "4.9",
@@ -229,6 +246,7 @@ const recipes = ref([
     recipeName: "Soup",
     duration: "60min",
     ingredient: "Chicken, Vegetables, Salt, Pepper",
+    category: "Healthy",
     video: "link",
     image: "link",
     rate: "4.2",
@@ -237,11 +255,11 @@ const recipes = ref([
     recipeName: "Burger",
     duration: "25min",
     ingredient: "Beef Patty, Bun, Lettuce, Tomato, Cheese",
+    category: "Healthy",
     video: "link",
     image: "link",
     rate: "4.7",
   },
-  // Add more recipes if needed
 ]);
 
 // Modal state
@@ -252,6 +270,7 @@ const newRecipe = ref({
   recipeName: "",
   duration: "",
   ingredient: "",
+  category: "",
   video: "",
   image: "",
 });
@@ -262,6 +281,7 @@ const saveRecipe = () => {
     newRecipe.value.recipeName &&
     newRecipe.value.duration &&
     newRecipe.value.ingredient &&
+    newRecipe.value.category &&
     newRecipe.value.video &&
     newRecipe.value.image
   ) {
@@ -274,6 +294,7 @@ const saveRecipe = () => {
       recipeName: "",
       duration: "",
       ingredient: "",
+      category: "",
       video: "",
       image: "",
     };
