@@ -1,12 +1,5 @@
 <template>
-  <aside class="w-60 min-h-screen bg-white border-r">
-    <div class="p-6 flex items-center gap-2">
-      <img
-        src="../assets/images/logo2.svg"
-        alt="Home Chefs Logo"
-        class="w-20 h-20"
-      />
-    </div>
+  <aside class="w-60 min-h-screen bg-gray-50 border-r">
     <nav class="px-4 space-y-2 mt-4">
       <div>
         <h3 class="px-4 font-medium text-orange-600 py-[8px]">
@@ -23,7 +16,7 @@
           active-class="bg-orange-100 text-orange-600"
         >
           <component :is="item.icon" class="w-6 h-6" />
-          <span class="text-sm font-medium uppercase tracking-wide">{{
+          <span class="text-sm font-medium uppercase tracking-wide text-">{{
             item.label
           }}</span>
         </NuxtLink>

@@ -29,12 +29,14 @@
           <td class="px-6 py-4 whitespace-nowrap">
             <div class="flex gap-2">
               <button
-                class="bg-green-500 text-orange-50 px-4 py-2 rounded-md cursor-pointer"
+                @click="$emit('edit-chef', index)"
+                class="bg-green-500 text-white px-4 py-2 rounded-md cursor-pointer hover:bg-green-600 transition"
               >
                 Edit
               </button>
               <button
-                class="bg-red-500 text-orange-50 px-4 py-2 rounded-md cursor-pointer"
+                @click="$emit('delete-chef', index)"
+                class="bg-red-500 text-white px-4 py-2 rounded-md cursor-pointer hover:bg-red-600 transition"
               >
                 Delete
               </button>
@@ -47,7 +49,7 @@
 </template>
 
 <script setup>
-const props = defineProps({
+defineProps({
   chefs: {
     type: Array,
     required: true,
@@ -59,4 +61,6 @@ const props = defineProps({
     default: () => [],
   },
 });
+
+defineEmits(["edit-chef", "delete-chef"]);
 </script>

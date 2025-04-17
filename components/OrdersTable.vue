@@ -32,8 +32,6 @@
           </td>
           <td class="px-6 py-4 whitespace-nowrap text-orange-500">
             <button
-              @click="markAsDone(index)"
-              v-if="order.status !== 'completed'"
               class="bg-orange-500 text-orange-50 px-4 py-2 rounded-md cursor-pointer"
             >
               Mark as Done
@@ -58,13 +56,4 @@ const props = defineProps({
     default: () => [],
   },
 });
-
-// Emit the updated orders list after marking an order as done
-const emit = defineEmits(['updateOrders']);
-
-// Method to mark an order as done
-const markAsDone = (index) => {
-  props.orders[index].status = 'completed';
-  emit('updateOrders', props.orders);  // Emit updated orders to the parent
-};
 </script>
